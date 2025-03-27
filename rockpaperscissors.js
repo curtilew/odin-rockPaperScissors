@@ -25,8 +25,6 @@ function getHumanChoice() {
     }
 }
 
-
-
 function playRound(humanChoice, computerChoice, scores) {
     if (humanChoice == "rock" && computerChoice == "paper") {
         console.log(`You LOSE! ${computerChoice} beats ${humanChoice}`);
