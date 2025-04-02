@@ -11,35 +11,18 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // let userChoice = prompt("Pick Rock, Paper, or Scissors: ");
-    const buttons = document.querySelectorAll('#btn');
+    let userChoice = prompt("Pick Rock, Paper, or Scissors: ");
 
-    buttons.forEach(button => {
-    button.addEventListener('click', function(event) {
-    const buttonText = this.textContent; 
-            });
-        });
-
-    if (buttonText.toLowerCase() == "rock") {
+    if (userChoice.toLowerCase() == "rock") {
         return "rock"
-    } else if (buttonText.toLowerCase() == "paper") {
+    } else if (userChoice.toLowerCase() == "paper") {
         return "paper"
-    } else if (buttonText.toLowerCase() == "scissors") {
+    } else if (userChoice.toLowerCase() == "scissors") {
         return "scissors"
     }  else {
         alert("Invalid choice");
         getHumanChoice()
-    }    
-    // if (userChoice.toLowerCase() == "rock") {
-    //     return "rock"
-    // } else if (userChoice.toLowerCase() == "paper") {
-    //     return "paper"
-    // } else if (userChoice.toLowerCase() == "scissors") {
-    //     return "scissors"
-    // }  else {
-    //     alert("Invalid choice");
-    //     getHumanChoice()
-    // }
+    }
 }
 
 function playRound(humanChoice, computerChoice, scores) {
