@@ -1,3 +1,13 @@
+const container = document.querySelector('#container');
+
+const content = document.createElement("div");
+content.classList.add("content");
+content.textContent = "This is the glorious text-content!";
+
+
+
+
+
 function getComputerChoice() {
     let ComputerNumberPick = Math.random() * 4
 
@@ -28,40 +38,40 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice, scores= {humanScore: 0, computerScore: 0}) {
 
     if (humanChoice == "rock" && computerChoice == "paper") {
-        console.log(`You LOSE! ${computerChoice} beats ${humanChoice}`);
+        content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
         scores.computerScore++;
     } 
     
     else if (humanChoice == "paper" && computerChoice == "rock") {
-        console.log(`You WIN! ${humanChoice} beats ${computerChoice}`);
+        content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
         scores.humanScore++;
     } 
     
     else if (humanChoice == "scissors" && computerChoice == "paper") {
-        console.log(`You WIN! ${humanChoice} beats ${computerChoice}`);
+        content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
         scores.humanScore++;
     } 
     
     else if (humanChoice == "rock" && computerChoice == "scissors") {
-        console.log(`You WIN! ${humanChoice} beats ${computerChoice}`);
+        content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
         scores.humanScore++;
     } 
     
     else if (humanChoice == "paper" && computerChoice == "scissors") {
-        console.log(`You LOSE! ${computerChoice} beats ${humanChoice}`);
+        content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
         scores.computerScore++;
     } 
     
     else if (humanChoice == "scissors" && computerChoice == "rock") {
-        console.log(`You LOSE! ${computerChoice} beats ${humanChoice}`);
+        content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
         scores.computerScore++;
     } 
     
     else {
-        console.log(`TIE! you picked ${humanChoice} and Computer picked ${computerChoice}`)
+        content.textContent =`TIE! you picked ${humanChoice} and Computer picked ${computerChoice}`;
     }
 
-    console.log(`SCORE.... USER: ${scores.humanScore} CPU: ${scores.computerScore}`)
+    content.textContent =`SCORE.... USER: ${scores.humanScore} CPU: ${scores.computerScore}`
 }
 
 
@@ -77,18 +87,18 @@ function playGame() {
     //     playRound(humanSelection, computerSelection, scores)
     // }
 
-    console.log(`Final Score USER: ${scores.humanScore} CPU: ${scores.computerScore}`)
+    content.textContent =`Final Score USER: ${scores.humanScore} CPU: ${scores.computerScore}`;
     
     if (scores.humanScore > scores.computerScore) {
-        console.log("YOU WIN THE GAME!!!")
+        content.textContent ="YOU WIN THE GAME!!!";
     } else if (scores.humanScore == scores.computerScore) {
-        console.log("TIE GAME.")
+        content.textContent ="TIE GAME.";
     } else {
-        console.log("YOU LOSE.")
+        content.textContent ="YOU LOSE.";
     } 
 }
 
 
 
-
+container.appendChild(content);
 // playGame()
