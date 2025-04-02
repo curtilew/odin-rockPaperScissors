@@ -4,7 +4,7 @@ const content = document.createElement("div");
 content.classList.add("content");
 content.textContent = "This is the glorious text-content!";
 
-
+totalScore = {humanScore: 0, computerScore: 0}
 
 
 
@@ -35,7 +35,7 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice, scores= {humanScore: 0, computerScore: 0}) {
+function playRound(humanChoice, computerChoice, scores= totalScore) {
 
     if (humanChoice == "rock" && computerChoice == "paper") {
         content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
