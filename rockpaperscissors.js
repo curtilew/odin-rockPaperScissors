@@ -77,6 +77,7 @@ function playRound(humanChoice, computerChoice, scores=totalScore, round=roundTr
         }
 
         content.textContent =`SCORE.... USER: ${scores.humanScore} CPU: ${scores.computerScore}`;
+        
         roundTracker += 1
     } 
     else {
@@ -89,6 +90,7 @@ function playRound(humanChoice, computerChoice, scores=totalScore, round=roundTr
         } 
         roundTracker = 1;
         totalScore = {humanScore: 0, computerScore: 0};
+        choices.textContent = "";
 
     }
 }
