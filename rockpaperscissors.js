@@ -4,6 +4,10 @@ const content = document.createElement("div");
 content.classList.add("content");
 content.textContent = "Welcome to ROCK, PAPER, SCISSORS. Pick your weapon to start!";
 
+const choices = document.createElement("div");
+choices.classList.add("choices");
+choices.textContent;
+
 totalScore = {humanScore: 0, computerScore: 0};
 roundTracker = 1;
 
@@ -39,37 +43,37 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice, scores=totalScore, round=roundTracker) {
     if (roundTracker < 6) {
         if (humanChoice == "rock" && computerChoice == "paper") {
-            content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
+            choices.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
             scores.computerScore++;
         } 
         
         else if (humanChoice == "paper" && computerChoice == "rock") {
-            content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
+            choices.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
             scores.humanScore++;
         } 
         
         else if (humanChoice == "scissors" && computerChoice == "paper") {
-            content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
+            choices.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
             scores.humanScore++;
         } 
         
         else if (humanChoice == "rock" && computerChoice == "scissors") {
-            content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
+            choices.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
             scores.humanScore++;
         } 
         
         else if (humanChoice == "paper" && computerChoice == "scissors") {
-            content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
+            choices.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
             scores.computerScore++;
         } 
         
         else if (humanChoice == "scissors" && computerChoice == "rock") {
-            content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
+            choices.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
             scores.computerScore++;
         } 
         
         else {
-            content.textContent =`TIE! you picked ${humanChoice} and Computer picked ${computerChoice}`;
+            choices.textContent =`TIE! you picked ${humanChoice} and Computer picked ${computerChoice}`;
         }
 
         content.textContent =`SCORE.... USER: ${scores.humanScore} CPU: ${scores.computerScore}`;
@@ -116,4 +120,5 @@ function playGame() {
 
 
 container.appendChild(content);
+container.appendChild(choices);
 // playGame()
