@@ -2,9 +2,10 @@ const container = document.querySelector('#container');
 
 const content = document.createElement("div");
 content.classList.add("content");
-content.textContent = "This is the glorious text-content!";
+content.textContent = "Welcome to ROCK, PAPER, SCISSORS. Pick your weapon to start!";
 
-totalScore = {humanScore: 0, computerScore: 0}
+totalScore = {humanScore: 0, computerScore: 0};
+roundTracker = 1;
 
 
 
@@ -35,43 +36,57 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice, scores= totalScore) {
+function playRound(humanChoice, computerChoice, scores=totalScore, round=roundTracker) {
+    if (roundTracker < 6) {
+        if (humanChoice == "rock" && computerChoice == "paper") {
+            content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
+            scores.computerScore++;
+        } 
+        
+        else if (humanChoice == "paper" && computerChoice == "rock") {
+            content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
+            scores.humanScore++;
+        } 
+        
+        else if (humanChoice == "scissors" && computerChoice == "paper") {
+            content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
+            scores.humanScore++;
+        } 
+        
+        else if (humanChoice == "rock" && computerChoice == "scissors") {
+            content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
+            scores.humanScore++;
+        } 
+        
+        else if (humanChoice == "paper" && computerChoice == "scissors") {
+            content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
+            scores.computerScore++;
+        } 
+        
+        else if (humanChoice == "scissors" && computerChoice == "rock") {
+            content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
+            scores.computerScore++;
+        } 
+        
+        else {
+            content.textContent =`TIE! you picked ${humanChoice} and Computer picked ${computerChoice}`;
+        }
 
-    if (humanChoice == "rock" && computerChoice == "paper") {
-        content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
-        scores.computerScore++;
+        content.textContent =`SCORE.... USER: ${scores.humanScore} CPU: ${scores.computerScore}`;
+        roundTracker += 1
     } 
-    
-    else if (humanChoice == "paper" && computerChoice == "rock") {
-        content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
-        scores.humanScore++;
-    } 
-    
-    else if (humanChoice == "scissors" && computerChoice == "paper") {
-        content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
-        scores.humanScore++;
-    } 
-    
-    else if (humanChoice == "rock" && computerChoice == "scissors") {
-        content.textContent =`You WIN! ${humanChoice} beats ${computerChoice}`;
-        scores.humanScore++;
-    } 
-    
-    else if (humanChoice == "paper" && computerChoice == "scissors") {
-        content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
-        scores.computerScore++;
-    } 
-    
-    else if (humanChoice == "scissors" && computerChoice == "rock") {
-        content.textContent =`You LOSE! ${computerChoice} beats ${humanChoice}`;
-        scores.computerScore++;
-    } 
-    
     else {
-        content.textContent =`TIE! you picked ${humanChoice} and Computer picked ${computerChoice}`;
-    }
+        if (scores.humanScore > scores.computerScore) {
+            content.textContent ="YOU WIN THE GAME!!!";
+        } else if (scores.humanScore == scores.computerScore) {
+            content.textContent ="TIE GAME.";
+        } else {
+            content.textContent ="YOU LOSE.";
+        } 
+        roundTracker = 1;
+        totalScore = {humanScore: 0, computerScore: 0};
 
-    content.textContent =`SCORE.... USER: ${scores.humanScore} CPU: ${scores.computerScore}`
+    }
 }
 
 
